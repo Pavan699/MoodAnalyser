@@ -6,9 +6,11 @@ namespace MoodAnalyserProgram
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome To Mood Analyser Program");
-            MoodAnalyser moodAna1 = new MoodAnalyser();//calling default constructor
-            MoodAnalyser moodAna2 = new MoodAnalyser("I am in Happy Mood");//parameterised constructor
+            Console.WriteLine("Welcome To Mood Analyser Program");                   
+            MoodAnalyser moodAna = new MoodAnalyser();
+            Console.Write("Enter Your current mood : ");
+            string inputdata = Console.ReadLine();
+            Console.WriteLine(moodAna.moodAnalyser(inputdata));
         }
     }
 }
