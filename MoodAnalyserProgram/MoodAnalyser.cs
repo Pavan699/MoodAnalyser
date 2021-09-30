@@ -7,49 +7,46 @@ namespace MoodAnalyserProgram
     /// <summary>
     /// MoodAnalyser class to analyse mood
     /// </summary>
-    public class MoodAnalyser
+    public class MoodAnalyser 
     {
         //class fields
-        public string data = "I am In Any Mood";
-        /// <summary>
-        /// MoodAnalyser() default constructor
-        /// </summary>
-        public string moodAnalyser()
+        public string data ;
+        public MoodAnalyser()
         {
-            if (data.ToLower().Contains("sad"))
-            {
-                return "Sad";
-            }
-            else
-            {
-                return "Happy";
-            }
+            this.data = "Dont know the mood";
         }
+        
+        public MoodAnalyser(string input)
+        {
+            this.data = input;
+        }
+
         /// <summary>
         /// MoodAnalyser(input) constructor with parameter
         /// </summary>
-        public string moodAnalyser(string input)
-        {
-            var tempArr = input.Split(" ");
-            string result = "";
-            for (int i = 0; i < tempArr.Length; i++)
+        public string moodAnalyser()
+        {          
+            try 
             {              
-                if (tempArr[i].ToLower().Equals("happy") || tempArr[i].ToLower().Equals("any"))
+                if (data.Equals(string.Empty))
                 {
-                    result = "Happy";
+                    //return "Entered String is Empty";
+                    throw new MoodCustom(MoodCustom.custExcep.Empty_String ,"Entered String is Empty");
                 }
-                else if (tempArr[i].ToLower().Equals("sad"))
+                if (data.ToLower().Contains("sad"))
                 {
-                    result = "Sad";
+                    return "Sad";
                 }
                 else
                 {
-                    Console.WriteLine("Entered Value Is Null OR Empty");
-                    string output = moodAnalyser();
-                    result = output;
+                    return "Happy";
                 }
             }
-            return result;
+            catch(NullReferenceException)
+            {
+                //return "You Entered Null";
+                throw new MoodCustom(MoodCustom.custExcep.Null_Msg, "You Entered Null");                
+            }        
         }  
     }
 }
