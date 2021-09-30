@@ -29,7 +29,9 @@ namespace TestMoodAnalyser
             string res = result1.moodAnalyser();
             Assert.AreEqual("Happy", res);//Assert
         }
-
+        /// <summary>
+        /// method to test the Empty string
+        /// </summary>
         [TestMethod]
         public void TestMethodEmpty()
         {
@@ -41,6 +43,23 @@ namespace TestMoodAnalyser
             catch(MoodCustom ma)
             {
                 Assert.AreEqual("Entered String is Empty", ma.Message);
+            }
+        }
+        /// <summary>
+        /// method to test the null value string
+        /// </summary>
+        [TestMethod]
+        public void TestMethodNull()
+        {
+            try
+            {
+                string str = null;
+                MoodAnalyser result = new MoodAnalyser(str);//Arrange           
+                string res = result.moodAnalyser();
+            }
+            catch (MoodCustom ma)
+            {
+                Assert.AreEqual("You Entered Null", ma.Message);
             }
         }
     }
