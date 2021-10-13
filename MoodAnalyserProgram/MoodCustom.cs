@@ -11,11 +11,10 @@ namespace MoodAnalyserProgram
             Null_Msg,
             Empty_String,
             Happy_Mood,
-            Sad_Mood,
-            Any_Mood,
+            Sad_Mood,           
             Angry_Mood
         }
-        public readonly custExcep type;        
+        public custExcep type;        
         public MoodCustom(custExcep excep, string message) : base(message)
         {
             this.type = excep;            

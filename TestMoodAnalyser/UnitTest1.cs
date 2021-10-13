@@ -8,7 +8,7 @@ namespace TestMoodAnalyser
     /// </summary>
     [TestClass]
     public class UnitTest1
-    {       
+    {
         /// <summary>
         /// method to test the Sad Mood
         /// </summary>
@@ -22,9 +22,9 @@ namespace TestMoodAnalyser
         /// <summary>
         /// Method to test the Happy mood 
         /// </summary>
-        [TestMethod]
+        [TestMethod]      
         public void TestMethodHappy()
-        {       
+        {
             MoodAnalyser result1 = new MoodAnalyser("I am any mood");//Arrange 
             string res = result1.moodAnalyser();
             Assert.AreEqual("Happy", res);//Assert
@@ -60,7 +60,7 @@ namespace TestMoodAnalyser
             catch (MoodCustom ma)
             {
                 Assert.AreEqual("You Entered Null", ma.Message);
-            }
+            }            
         }
     }
 }

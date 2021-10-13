@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace MoodAnalyserProgram
 {
@@ -13,7 +14,9 @@ namespace MoodAnalyserProgram
             MoodAnalyser analyser = new MoodAnalyser(inputdata);
             string input = analyser.moodAnalyser();
             Console.WriteLine(input);
-           
+
+            Reflections reflections = new Reflections();
+            reflections.ReflectionTests();
         }
     }
 }

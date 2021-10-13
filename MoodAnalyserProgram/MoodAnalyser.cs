@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Reflection;
 
 namespace MoodAnalyserProgram
 {
@@ -10,17 +11,15 @@ namespace MoodAnalyserProgram
     public class MoodAnalyser 
     {
         //class fields
-        public string data ;
+        public string data;
         public MoodAnalyser()
         {
             this.data = "Dont know the mood";
-        }
-        
+        }       
         public MoodAnalyser(string input)
         {
             this.data = input;
         }
-
         /// <summary>
         /// MoodAnalyser(input) constructor with parameter
         /// </summary>
@@ -30,8 +29,8 @@ namespace MoodAnalyserProgram
             {              
                 if (data.Equals(string.Empty))
                 {
-                    //return "Entered String is Empty";
-                    throw new MoodCustom(MoodCustom.custExcep.Empty_String ,"Entered String is Empty");
+                    return "Entered String is Empty";
+                    throw new MoodCustom(MoodCustom.custExcep.Empty_String ,"Entered String is Empty");                   
                 }
                 if (data.ToLower().Contains("sad"))
                 {
@@ -44,9 +43,15 @@ namespace MoodAnalyserProgram
             }
             catch(NullReferenceException)
             {
-                //return "You Entered Null";
+                return "You Entered Null";
                 throw new MoodCustom(MoodCustom.custExcep.Null_Msg, "You Entered Null");                
-            }        
-        }  
+            }
+            catch (Exception Ex)
+            {
+
+                return Ex.Message;
+                throw new MoodCustom(MoodCustom.custExcep.Angry_Mood, "User is in Angry Mood");
+            }
+        }         
     }
 }
